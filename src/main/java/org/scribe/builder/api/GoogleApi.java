@@ -9,7 +9,7 @@ public class GoogleApi extends DefaultApi10a
   @Override
   public String getAccessTokenEndpoint()
   {
-    return "https://www.google.com/accounts/OAuthGetAccessToken"; 
+    return "https://www.google.com/accounts/OAuthGetAccessToken";
   }
 
   @Override

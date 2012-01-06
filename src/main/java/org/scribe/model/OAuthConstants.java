@@ -38,6 +38,7 @@ public class OAuthConstants
   public static final String HEADER = "Authorization";
   public static final Token EMPTY_TOKEN = new Token("", "");
   public static final String SCOPE = "scope";
+  public static final String GRANT_TYPE = "grant_type";
 
   //OAuth 2.0
   public static final String ACCESS_TOKEN = "access_token";

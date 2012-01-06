@@ -22,7 +22,8 @@ public class ServiceBuilder
   private Api api;
   private String scope;
   private SignatureType signatureType;
-  private OutputStream debugStream;
+	private String grantType;
+	private OutputStream debugStream;
   
   /**
    * Default constructor
@@ -128,6 +129,13 @@ public class ServiceBuilder
     return this;
   }
 
+  public ServiceBuilder grantType(String grantType)
+  {
+    Preconditions.checkEmptyString(grantType, "Invalid OAuth grant_type");
+    this.grantType = grantType;
+    return this;
+  }
+
   /**
    * Configures the signature type, choose between header, querystring, etc. Defaults to Header
    *
@@ -164,6 +172,6 @@ public class ServiceBuilder
     Preconditions.checkNotNull(api, "You must specify a valid api through the provider() method");
     Preconditions.checkEmptyString(apiKey, "You must provide an api key");
     Preconditions.checkEmptyString(apiSecret, "You must provide an api secret");
-    return api.createService(new OAuthConfig(apiKey, apiSecret, callback, signatureType, scope, debugStream));
+    return api.createService(new OAuthConfig(apiKey, apiSecret, callback, signatureType, scope, grantType, debugStream));
   }
 }
